@@ -7,7 +7,6 @@ async function retrieveData(ticker, response) {
     );
     var json = JSON.stringify(res.rows);
     response.send(json);
-    console.log(json);
   } catch (error) {
     console.error(error);
   }

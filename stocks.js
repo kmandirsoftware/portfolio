@@ -97,4 +97,10 @@ export default class Stocks {
 			});
 		});
 	}
+	calcValues() {
+		const allstocks = this.getAll();
+		allstocks.forEach((stock) => {
+			stock.value = stock.qty * (stock.price - stock.purchaseprice);
+		});
+	}
 }

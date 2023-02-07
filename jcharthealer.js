@@ -5,6 +5,7 @@ export default class getChart {
 		this.chart = new CanvasJS.Chart(div, {
 			animationEnabled: true,
 			theme: "light2",
+			zoomEnabled: true,
 			title: {
 				text: title,
 			},
@@ -44,5 +45,8 @@ export default class getChart {
 		let point = `${date.getHours()}:${date.getMinutes()}`;
 		console.log(point);
 		this._chart.options.data[0].dataPoints.push({ x: date, y: val });
+	}
+	setData(data) {
+		this._chart.options.data[0].dataPoints = data;
 	}
 }
