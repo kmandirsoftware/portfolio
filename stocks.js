@@ -14,6 +14,24 @@ export default class Stocks {
 				qty: 5199,
 			},
 			{
+				company: "Kellog",
+				ticker: "K",
+				price: 68,
+				purchaseprice: 68,
+				catagory: "Food",
+				value: 0,
+				qty: 365,
+			},
+			{
+				company: "Coca Cola",
+				ticker: "KO",
+				price: 60,
+				purchaseprice: 60,
+				catagory: "Food",
+				value: 0,
+				qty: 417,
+			},
+			{
 				company: "Qualcom",
 				ticker: "QCOM",
 				price: 134,
@@ -30,6 +48,24 @@ export default class Stocks {
 				catagory: "Tech",
 				value: 0,
 				qty: 50,
+			},
+			{
+				company: "Google",
+				ticker: "GOOG",
+				price: 100,
+				purchaseprice: 90,
+				catagory: "Tech",
+				value: 0,
+				qty: 100,
+			},
+			{
+				company: "Apple",
+				ticker: "AAPL",
+				price: 152,
+				purchaseprice: 150,
+				catagory: "Tech",
+				value: 0,
+				qty: 100,
 			},
 		];
 	}
@@ -74,6 +110,17 @@ export default class Stocks {
 	setValue(ticker, value) {
 		this.stocks.forEach((stock) => {
 			if (stock.ticker === ticker) stock.value = value;
+		});
+	}
+	setPrice(ticker, price) {
+		this.stocks.forEach((stock) => {
+			if (stock.ticker === ticker) {
+				stock.price = price;
+				let val = stock.qty * (stock.price - stock.purchaseprice);
+				const strip = val.toFixed(2);
+				val = parseFloat(strip, 2);
+				stock.value = val;
+			}
 		});
 	}
 	getTotalValue() {

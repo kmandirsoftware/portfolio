@@ -1,6 +1,6 @@
 const yahooStockAPI = require("yahoo-stock-api").default;
 const insertData = require("./pg-insert");
-const retrieveData = require("./pg-retrieve");
+const { retrieveData, retrieveDateData } = require("./pg-retrieve");
 
 const appRouter = (app, fs) => {
 	const yahoo = new yahooStockAPI();
@@ -24,6 +24,15 @@ const appRouter = (app, fs) => {
 	app.get("/history/:ticker", (req, res) => {
 		const tickername = req.params["ticker"];
 		retrieveData(tickername, res);
+	});
+	app.get("/today/:ticker", (req, res) => {
+		const tickername = req.params["ticker"];
+		let myDate = new Date(Date.now());
+		let fDate = `${myDate.getFullYear()}-${
+			myDate.getMonth() + 1
+		}-${myDate.getDate()}`;
+		console.log(fDate);
+		retrieveDateData(tickername, res, fDate);
 	});
 };
 module.exports = appRouter;
