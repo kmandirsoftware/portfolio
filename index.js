@@ -1,5 +1,8 @@
 import Stocks from "./stocks.js";
 import getChart from "./jcharthealer.js";
+import { handleMenu } from "./menu.js";
+import { updateNews } from "./m-news-ui.js";
+import { startStream, stopStream } from "./js/stock-stream.js";
 
 const list = document.querySelector("#stock-table");
 const count = document.querySelector("#stock-count");
@@ -146,4 +149,6 @@ document.addEventListener("DOMContentLoaded", function () {
 	if (myDate.getHours() >= 7 || myDate.getHours() <= 14) {
 		interval = setInterval(getUpdates, 300000);
 	}
+	handleMenu();
+	updateNews("dummy");
 });

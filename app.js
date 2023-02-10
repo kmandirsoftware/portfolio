@@ -14,6 +14,7 @@ app.use(express.static(path.join(__dirname, "./")));
     });
 */
 const routes = require("./yhelper.js")(app, fs);
+const finroutes = require("./finance/fin-route.js")(app, fs);
 var server = app.listen(3003, function () {
 	console.log("We have started our server on port 3003");
 });

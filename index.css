@@ -275,3 +275,49 @@ table {
 	border-spacing: 0;
 	border-collapse: collapse;
 }
+.nav-tabs {
+	position: relative;
+	margin: 0 0 40px 0;
+}
+
+.nav-tabs ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	padding-left: 0;
+}
+
+.nav-tabs li {
+	display: inline-block;
+}
+
+.nav-tabs .tab {
+	text-decoration: none;
+	color: var(--black);
+	margin-right: 20px;
+	cursor: pointer;
+	line-height: 1.6;
+	padding: 0.25em;
+}
+.nav-tabs .tab.active {
+	border-bottom: 7px solid var(--accent-1);
+}
+
+.border-tabs {
+	position: absolute;
+	z-index: -1;
+	bottom: 3px;
+	border-bottom: var(--neutral-4) solid 1px;
+	min-width: 400px;
+}
+
+.tab {
+	all: unset;
+}
+
+.tab-content {
+	display: none;
+}
+.tab-content.show {
+	display: block;
+}

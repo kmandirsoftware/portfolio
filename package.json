@@ -10,6 +10,7 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.18.2",
+    "finnhub": "^1.2.16",
     "pg": "^8.9.0",
     "yahoo-stock-api": "^2.1.1"
   },

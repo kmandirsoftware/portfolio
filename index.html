@@ -8,26 +8,70 @@
 	</head>
 	<body>
 		<div id="container">
-			<h3>Stocks <span id="stock-count"></span></h3>
-			<h3>Stocks Value <span id="stock-value"></span></h3>
-			<table id="stock-table"></table>
-			<ul id="stock-list"></ul>
+			<div class="tabs">
+				<div class="nav-tabs">
+					<ul>
+						<li>
+							<button class="tab active" data-content="#stock-daily-chart">
+								Stock Daily Charts
+							</button>
+						</li>
+						<li>
+							<button class="tab" data-content="#market-news">
+								Market News
+							</button>
+						</li>
+						<li>
+							<button id="stock-stream" class="tab" data-content="#stock-streaming">
+								Live Stock Quotes
+							</button>
+						</li>
+					</ul>
+					<div class="border-tabs"></div>
+				</div>
+				<div id="stock-daily-chart" class="tab-content show">
+					Time Series Charts
+					<h3>Stocks <span id="stock-count"></span></h3>
+					<h3>Stocks Value <span id="stock-value"></span></h3>
+					<table id="stock-table"></table>
+					<ul id="stock-list"></ul>
+
+					<button
+						id="today-button"
+						class="button btn btn-default"
+						data-content="today"
+					>
+						today
+					</button>
+					<button
+						id="all-button"
+						class="button btn btn-default"
+						data-content="all"
+					>
+						all
+					</button>
+					<button
+						id="spot-button"
+						class="button btn btn-default"
+						data-content="spot"
+					>
+						spot
+					</button>
+					<p>Time Series Chart</p>
+					<div id="chartContainer" style="height: 370px; width: 100%"></div>
+				</div>
+
+				<div id="market-news" class="tab-content">
+					<p>Market News</p>
+					<table id="news-table"></table>
+				</div>
+
+				<div id="stock-streaming" class="tab-content">
+					<div id="StreamContainer" style="height: 370px; width: 100%"></div>
+				</div>
+			</div>
 		</div>
-		<button
-			id="today-button"
-			class="button btn btn-default"
-			data-content="today"
-		>
-			today
-		</button>
-		<button id="all-button" class="button btn btn-default" data-content="all">
-			all
-		</button>
-		<button id="spot-button" class="button btn btn-default" data-content="spot">
-			spot
-		</button>
-		<p>Time Series Chart</p>
-		<div id="chartContainer" style="height: 370px; width: 100%"></div>
+
 		<script type="text/javascript" src="canvasjs.min.js"></script>
 		<script type="module" src="index.js"></script>
 	</body>
