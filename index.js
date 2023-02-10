@@ -1,8 +1,8 @@
 import Stocks from "./stocks.js";
-import getChart from "./jcharthealer.js";
+import getChart from "./js/jcharthealer.js";
 import { handleMenu } from "./menu.js";
 import { updateNews } from "./m-news-ui.js";
-import { startStream, stopStream } from "./js/stock-stream.js";
+import { initStreamCharts } from "./js/stock-stream.js";
 
 const list = document.querySelector("#stock-table");
 const count = document.querySelector("#stock-count");
@@ -141,6 +141,7 @@ const render = (items, itemsCount, tValue) => {
 document.addEventListener("DOMContentLoaded", function () {
 	// Get value of each stock by calculating base vas current
 	initCharts(stocks.getAll());
+	initStreamCharts(stocks.getAll());
 	getToday(stocks.getAll());
 	stocks.calcValues();
 	render(stocks.getAll(), stocks.getCount(), stocks.getTotalValue());
